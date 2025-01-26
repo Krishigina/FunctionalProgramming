@@ -11,6 +11,14 @@ fun main() {
         .transform { it.copy(age = it.age + 1) }
         .sortedBy { it.firstName }
         .forEach({ println(it) })
+    showEmail()
+
+}
+
+fun showEmail() {
+    print("Введите id пользователя: ")
+    val id = readln().toInt()
+    ProfilesRepository.profiles.find { it.id == id }?.let { println(it.email) } ?: println("Пользователь не найден")
 }
 
 
