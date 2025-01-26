@@ -1,6 +1,5 @@
 package products
 
-import extensions.transform
 import extensions.filter
 import extensions.myForEach
 
@@ -9,5 +8,5 @@ fun main() {
         .filter{it.productCategory.equals(Category.CLOTHING)}
         .map{it.copy(productPrice = it.productPrice * 2)}
         .map{"${it.id}-${it.productName}-${it.productPrice}"}
-        .myForEach { println(it) }
+        .myForEach(::println)
 }
